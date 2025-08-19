@@ -236,7 +236,7 @@ const PhotoGalleryApp = () => {
   };
 
   const PhotoGrid = () => (
-    <div className="grid grid-cols-3 gap-1 mb-20 px-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4 mb-20 px-4">
       {filteredPhotos.map((photo) => (
         <div
           key={photo.id}
@@ -273,20 +273,22 @@ const PhotoGalleryApp = () => {
   );
 
   const AlbumsGrid = () => (
-    <div className="px-4 space-y-4 mb-20">
+    <div className="px-4 mb-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {albums.map((album) => (
-        <div
-          key={album.id}
-          className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg"
-        >
-          <img
-            src={album.cover}
-            alt={album.name}
-            className="w-16 h-16 object-cover rounded-lg"
-          />
-          <div className="flex-1">
-            <h3 className="font-medium text-gray-900">{album.name}</h3>
-            <p className="text-sm text-gray-500">{album.count} photos</p>
+          <div
+            key={album.id}
+            className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
+          >
+            <img
+              src={album.cover}
+              alt={album.name}
+              className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg flex-shrink-0"
+            />
+            <div className="flex-1 min-w-0">
+              <h3 className="font-medium text-gray-900 truncate">{album.name}</h3>
+              <p className="text-sm text-gray-500">{album.count} photos</p>
+            </div>
           </div>
         </div>
       ))}
@@ -294,13 +296,13 @@ const PhotoGalleryApp = () => {
   );
 
   const EditorPanel = () => (
-    <div className="px-4 mb-20">
+    <div className="px-4 mb-20 max-w-4xl mx-auto">
       <div className="text-center py-8">
         <Edit3 className="w-16 h-16 text-gray-400 mx-auto mb-4" />
         <h3 className="text-lg font-medium text-gray-600 mb-2">Photo Editor</h3>
         <p className="text-gray-500 mb-6">Select a photo to start editing</p>
 
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3">
           {photos.slice(0, 6).map((photo) => (
             <div
               key={photo.id}
@@ -323,7 +325,7 @@ const PhotoGalleryApp = () => {
   );
 
   const ProfilePanel = () => (
-    <div className="px-4 mb-20">
+    <div className="px-4 mb-20 max-w-md mx-auto">
       <div className="text-center py-8">
         <div className="w-20 h-20 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
           <User className="w-10 h-10 text-gray-600" />
@@ -360,7 +362,7 @@ const PhotoGalleryApp = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto bg-white min-h-screen flex flex-col relative">
+    <div className="max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto bg-white min-h-screen flex flex-col relative">
       {/* Status Bar */}
       <div className="flex justify-between items-center px-6 py-2 text-black font-medium">
         <span>9:41</span>
@@ -381,16 +383,16 @@ const PhotoGalleryApp = () => {
       </div>
 
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-4">
+      <div className="flex items-center justify-between px-4 py-4 flex-wrap gap-2">
         <div className="flex-1 relative">
-          <div className="flex items-center bg-gray-100 rounded-full px-4 py-3">
+          <div className="flex items-center bg-gray-100 rounded-full px-4 py-3 min-w-0">
             <Search className="w-5 h-5 text-gray-500 mr-3" />
             <input
               type="text"
               placeholder="Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-transparent outline-none flex-1 text-gray-700"
+              className="bg-transparent outline-none flex-1 text-gray-700 min-w-0"
             />
             {searchQuery && (
               <button onClick={() => setSearchQuery("")}>
@@ -399,7 +401,7 @@ const PhotoGalleryApp = () => {
             )}
           </div>
         </div>
-        <div className="ml-4 flex space-x-3">
+        <div className="ml-2 sm:ml-4 flex space-x-2 sm:space-x-3 flex-shrink-0">
           <button
             onClick={toggleSelectionMode}
             className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
@@ -439,7 +441,7 @@ const PhotoGalleryApp = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="bg-white border-t border-gray-200 px-4 py-2 flex justify-around items-center">
+      <div className="bg-white border-t border-gray-200 px-2 sm:px-4 py-2 flex justify-around items-center">
         {[
           { name: "Gallery", icon: Image },
           { name: "Albums", icon: Layers },
@@ -453,10 +455,10 @@ const PhotoGalleryApp = () => {
               activeTab === tab.name ? "text-black" : "text-gray-500"
             }`}
           >
-            <tab.icon className="w-6 h-6 mb-1" strokeWidth="1.5" />
-            <span className="text-xs font-medium">{tab.name}</span>
-          </button>
+            <tab.icon className="w-5 h-5 sm:w-6 sm:h-6 mb-1" strokeWidth="1.5" />
+            <span className="text-xs font-medium hidden sm:block">{tab.name}</span>
         ))}
+      </div>
       </div>
 
       {/* Photo Modal */}
