@@ -275,7 +275,7 @@ const PhotoGalleryApp = () => {
   const AlbumsGrid = () => (
     <div className="px-4 mb-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {albums.map((album) => (
+        {albums.map((album) => (
           <div
             key={album.id}
             className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
@@ -290,8 +290,8 @@ const PhotoGalleryApp = () => {
               <p className="text-sm text-gray-500">{album.count} photos</p>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 
@@ -457,8 +457,8 @@ const PhotoGalleryApp = () => {
           >
             <tab.icon className="w-5 h-5 sm:w-6 sm:h-6 mb-1" strokeWidth="1.5" />
             <span className="text-xs font-medium hidden sm:block">{tab.name}</span>
+          </button>
         ))}
-      </div>
       </div>
 
       {/* Photo Modal */}
