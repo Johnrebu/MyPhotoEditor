@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RotateCcw } from 'lucide-react';
-import { Photo, EditorFilters } from '../../types';
+import type { Photo, EditorFilters } from '../../types';
 
 interface PhotoEditorModalProps {
   photo: Photo | null;

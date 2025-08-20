@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Photo, TabType } from "./types";
+import type { Photo, TabType } from "./types";
 import { usePhotos } from "./hooks/usePhotos";
 import { useAlbums } from "./hooks/useAlbums";
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Album } from '../types';
+import type { Album } from '../types';
 
 export const useAlbums = () => {
   const [albums] = useState<Album[]>([

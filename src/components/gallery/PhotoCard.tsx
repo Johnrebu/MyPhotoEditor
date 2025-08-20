@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check, Heart } from 'lucide-react';
-import { Photo } from '../../types';
+import type { Photo } from '../../types';
 
 interface PhotoCardProps {
   photo: Photo;

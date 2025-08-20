@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Heart, Share, Download } from 'lucide-react';
-import { Photo } from '../../types';
+import type { Photo } from '../../types';
 
 interface PhotoModalProps {
   photo: Photo;

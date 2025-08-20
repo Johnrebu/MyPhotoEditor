@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Layers, Edit3, User } from 'lucide-react';
-import { TabType } from '../../types';
+import type { TabType } from '../../types';
 
 interface BottomNavigationProps {
   activeTab: TabType;

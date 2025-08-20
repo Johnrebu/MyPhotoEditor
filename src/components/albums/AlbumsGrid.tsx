@@ -1,6 +1,6 @@
 import React from 'react';
 import AlbumCard from './AlbumCard';
-import { Album } from '../../types';
+import type { Album } from '../../types';
 
 interface AlbumsGridProps {
   albums: Album[];

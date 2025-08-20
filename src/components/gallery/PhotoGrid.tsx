@@ -1,6 +1,6 @@
 import React from 'react';
 import PhotoCard from './PhotoCard';
-import { Photo } from '../../types';
+import type { Photo } from '../../types';
 
 interface PhotoGridProps {
   photos: Photo[];

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Photo } from '../types';
+import type { Photo } from '../types';
 
 export const usePhotos = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);

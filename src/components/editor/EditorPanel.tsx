@@ -1,6 +1,6 @@
 import React from 'react';
 import { Edit3 } from 'lucide-react';
-import { Photo } from '../../types';
+import type { Photo } from '../../types';
 
 interface EditorPanelProps {
   photos: Photo[];
